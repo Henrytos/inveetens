@@ -1,7 +1,16 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
+interface ContainerProps extends ComponentProps<"section"> {}
 
-export function Container({children}:{children:ReactNode}){
-    return <main className="w-full max-w-7xl px-4  sm:px-8  m-auto relative"> 
-        {children}
-    </main>
+export function Container({ children, className }: ContainerProps) {
+  return (
+    <section
+      className={twMerge(
+        "w-full max-w-[1440px] px-4  sm:px-8  m-auto ",
+        className
+      )}
+    >
+      {children}
+    </section>
+  );
 }

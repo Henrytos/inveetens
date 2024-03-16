@@ -4,7 +4,6 @@ import "./globals.css";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/_contexts/theme-provider";
-import { Container } from "@/components/container";
 import { NavBar } from "@/components/nav-bar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <head />
         <body
           className={cn(
-            "text-foreground flex  flex-col lg:flex-row font-sans antialiased  bg-background relative",
+            "text-foreground  font-sans antialiased  bg-background relative",
             inter.className
           )}
         >
@@ -31,10 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             enableSystem
             disableTransitionOnChange
           >
-            <Container>
-              <NavBar />
-              {children}
-            </Container>
+            {children}
           </ThemeProvider>
         </body>
       </html>

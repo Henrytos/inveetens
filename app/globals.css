@@ -48,3 +48,10 @@
     --ring: 224.3 76.3% 48%;
   }
 }
+
+#bg-home {
+  background-image: url("/imgs/background-home-senai.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom right;
+}
