@@ -5,10 +5,7 @@ interface ContainerProps extends ComponentProps<"section"> {}
 export function Container({ children, className }: ContainerProps) {
   return (
     <section
-      className={twMerge(
-        "w-full max-w-[1440px] px-4  sm:px-8  m-auto ",
-        className
-      )}
+      className={twMerge("w-full max-w-[1440px]   sm:px-8  m-auto ", className)}
     >
       {children}
     </section>
