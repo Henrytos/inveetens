@@ -46,7 +46,7 @@ export default function Home() {
               <Text className="indent-2">
                 O propósito da palestra é{" "}
                 <Marking isText={true}>
-                  ”Disseminar conhecimento sobre finanças"
+                  Disseminar conhecimento sobre finanças
                 </Marking>
                 e investimentos para jovens do 8º ano até o Ensino Médio. Além
                 disso, valorizamos a soma da educação financeira com outros
