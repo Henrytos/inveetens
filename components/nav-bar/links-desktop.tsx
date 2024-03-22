@@ -3,7 +3,6 @@
 import { ThemeToggle } from "@/app/_contexts/theme-togle";
 import { NavLink } from "./nav-link";
 import { useState } from "react";
-import { MagicMotion } from "react-magic-motion";
 
 interface Link {
   id: string;
@@ -17,7 +16,7 @@ export function LinksDesktop() {
   const links: Link[] = [
     {
       id: "0",
-      href: "#quem-somos",
+      href: "#",
       name: "Quem somos",
     },
     {
