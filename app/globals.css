@@ -55,3 +55,11 @@
   background-size: cover;
   background-position: center right;
 }
+
+#bg-deivid {
+  background-image: url("/imgs/foto_deivyd.webp");
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 2rem 0rem;
+}
