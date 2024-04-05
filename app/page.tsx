@@ -17,12 +17,27 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { X } from "lucide-react";
+import { Link, X } from "lucide-react";
+import { link } from "fs";
+import { FormToEmail } from "@/components/form/form_to_email";
 
 interface Palestra {
   id: number;
   title: string;
   src: string;
+}
+
+interface Conquista {
+  title: string;
+  text: string;
+  link: string;
+  srcImg: string;
+}
+
+interface Parceiro {
+  srcImg: string;
+  text: string;
+  link: string;
 }
 
 export default function Home() {
@@ -126,6 +141,71 @@ export default function Home() {
   const total = quantity + palestraList[2023].length;
   const size = (quantity / total) * 100;
 
+  const conquistas: Conquista[] = [
+    {
+      link: "https://www.prudential.com.br/jovens-visionarios",
+      text: "O Prêmio Jovens Visionários Prudential é um programa de reconhecimento internacional que premia jovens por suas soluções inovadoras para desafios financeiros e sociais em suas comunidades.",
+      title: "Somos finalistas do Jovens Visionários (Prudential)",
+      srcImg: "/imgs/midia/prudential.webp",
+    },
+    {
+      title: "Matéria na Seduc",
+      text: "Influenciador de finanças e medalhista na Olimpíada de Investimentos inspira jovens a lidar com dinheiro. Deivyd Barros de Sousa, de 18 anos de idade, concluiu o Ensino Médio neste ano e seu aprendizado sobre educação financeira tem transformado a sua vida e de outros jovens.",
+      link: "https://www.educacao.sp.gov.br/influenciador-de-financas-e-medalhista-na-olimpiada-de-investimentos-estudante-de-osasco-inspira-outros-jovens-lidar-com-o-dinheiro/",
+      srcImg: "/imgs/midia/seduc.webp",
+    },
+    {
+      title: "Prêmio na feira do Sebrae",
+      text: "Campeões da Arena de Games da Feira do Empreendedor do Sebrae-SP em 2022, os amigos Deivyd Sousa, Emily Carla da Silva, Eyshila Souza e Renan Luz Borges se organizaram novamente para tentar repetir o feito em 2023.",
+      link: "https://sp.agenciasebrae.com.br/cultura-empreendedora/arena-de-games-trabalha-habilidades-na-feira-do-empreendedor/",
+      srcImg: "/imgs/midia/sebrae.webp",
+    },
+
+    {
+      title: "Semana da Imprensa",
+      text: "A Semana da Imprensa 2023 foi realizada entre os dias 13 e 14 de setembro. Uma iniciativa dos jornais Joca e TINO Econômico.",
+      link: "https://www.youtube.com/watch?v=1JCSaptDDdw&t=60s",
+      srcImg: "/imgs/midia/semana-imprensa.webp",
+    },
+
+    {
+      title: "Conversa com o prefeito de Osasco",
+      text: "A equipe fundadora da Investeens conversa com o prefeito de Osasco para alinhamento de projetos e futuras parcerias.",
+      link: "https://grupoifj.com.br/",
+      srcImg: "/imgs/midia/conversa-prefeito.webp",
+    },
+    {
+      title: "Tino Econômico",
+      text: "Deivyd Barros, o jovem que ensina finanças na internet. Desde os 13 anos leva educação financeira para os seus colegas, professores seguidores.",
+      link: "https://www.tinoeconomico.com.br/deivyd-barros-o-jovem-que-ensina-financas-na-internet/",
+      srcImg: "/imgs/midia/seduc.webp",
+    },
+    {
+      title: "Conversa com o prefeito de Osasco",
+      text: "Nas periferias, jovens visionários vão além das práticas convencionais das salas de aula, explorando novos caminhos através dos estudos sobre finanças e empreendedorismo. Com determinação, esses jovens superam os obstáculos,por meio do conhecimento.",
+      link: "https://jornalaborda.com.br/inspiracao-juvenil-educacao-financeira-em-osasco/",
+      srcImg: "/imgs/midia/jornal-aborda.webp",
+    },
+  ];
+
+  const parceiros: Parceiro[] = [
+    {
+      link: "https://www.tangrameducacao.com/",
+      srcImg: "/imgs/logo_tino_economico.png",
+      text: "A parceria entre Tino Econômico (Primeiro jornal de economia para jovens do Brasil) e Investeens consiste em levarmos educação financeira para estudantes do 8ºAno até o 3º do Ensino Médio por meio de bate papos dentro das instituições escolares públicas e privadas pelo Brasil. ",
+    },
+    {
+      link: "https://www.tangrameducacao.com/",
+      srcImg: "/imgs/logo_tangram.png",
+      text: "A parceria entre a Tangram (Duolingo da educação financeira) e a Investeens consiste na divulgação e produção de materiais para as mídias digitais, com finalidade de divulgação e construção da maior olimpíada de educação financeira que o Brasil já teve. ",
+    },
+    {
+      link: "https://www.tangrameducacao.com/",
+      srcImg: "/imgs/logo_futuro_para_todos.png",
+      text: "A parceria entre o Instituto Futuro para Todos e a Investeens, consiste no auxilio através de mentorias para o Comitê Jovem do instituto - Sendo assim a Investeens atualmente a Embaixadora oficial do comitê jovem de forma nacional. ",
+    },
+  ];
+
   return (
     <>
       <NavBar />
@@ -152,7 +232,7 @@ export default function Home() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-3 "
           id="palestras"
         >
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div className="space-y-3">
               <Title>
                 PALESTRA <Marking>INVESTINDO NO FUTURO</Marking>{" "}
@@ -378,28 +458,90 @@ export default function Home() {
           <Title>
             Conquistas da <Marking>Investeens</Marking>
           </Title>
-          <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="group h-96 relative">
-              <Image
-                src="/imgs/midia/prudential.webp"
-                alt="premio"
-                width={400}
-                height={400}
-                className="object-cover w-full h-full  transition-transform duration-300"
-              />
-              <div className="  flex flex-col justify-center absolute top-0 left-0 w-full h-full bg-transparent  group-hover:bg-black/70 group-hover:text-white transition-all px-5 gap-4">
-                <SubTitle className="text-transparent group-hover:text-white  before:h-0 group-hover:before:h-12  transition-all">
-                  Somos finalistas do Jovens Visionários (Prudential)
-                </SubTitle>
-                <Text className="text-transparent group-hover:text-white transition-all ">
-                  O Prêmio Jovens Visionários Prudential é um programa de
-                  reconhecimento internacional que premia jovens por suas
-                  soluções inovadoras para desafios financeiros e sociais em
-                  suas comunidades.
-                </Text>
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+            {conquistas.map((conquista) => (
+              <div
+                className="group h-72 sm:h-auto  relative"
+                key={conquista.link}
+              >
+                <Image
+                  src={conquista.srcImg}
+                  alt={`image da ${conquista.title}`}
+                  width={400}
+                  height={400}
+                  className="object-cover w-full h-full  transition-transform duration-300"
+                />
+                <figcaption className="absolute -bottom-6 w-full text-center">
+                  {conquista.title}
+                </figcaption>
+                <div className="  flex flex-col justify-center absolute top-0 left-0 w-full h-full bg-transparent  group-hover:bg-black/70 group-hover:text-white transition-all px-5 gap-4">
+                  <SubTitle className="text-transparent group-hover:text-white  before:h-0 group-hover:before:h-12  transition-all">
+                    {conquista.title}
+                  </SubTitle>
+                  <Text className="text-transparent group-hover:text-white transition-all ">
+                    {conquista.text}
+                  </Text>
+                  <Button
+                    className="invisible group-hover:visible transition-all flex items-center gap-2"
+                    asChild
+                  >
+                    <a href={conquista.link} target="_blank">
+                      <Link />
+                      <span>Ver mais</span>
+                    </a>
+                  </Button>
+                </div>
               </div>
-            </div>
+            ))}
           </section>
+        </Content>
+        <Content className="space-y-8">
+          <Title>
+            <Marking>PARCEIROS</Marking>
+          </Title>
+          <div className="grid  grid-cols-1  md:grid-cols-2 lg:grid-cols-3  gap-4">
+            {parceiros.map((parceiro) => (
+              <div
+                className="flex flex-col justify-between gap-4 p-4 border-primary-foreground border-2 rounded-xl"
+                key={parceiro.link}
+              >
+                <div>
+                  <Image
+                    className="object-cover h-40"
+                    width={400}
+                    height={200}
+                    alt="logo de um parceiro de invessteen"
+                    src={parceiro.srcImg}
+                  />
+                  <Text className="text-justify">{parceiro.text}</Text>
+                </div>
+                <Button className="  flex items-center gap-2" asChild>
+                  <a href={parceiro.link} target="_blank">
+                    <Link />
+                    <span>Ver mais</span>
+                  </a>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </Content>
+        <Content className="grid grid-cols-1 sm:grid-cols-2 gap-8 pb-20">
+          <div className="flex flex-col justify-center  gap-4 h-full relative">
+            <Title className="absolute top-0 left-0">
+              SEJA NOSSO <Marking>PARCEIRO</Marking>
+            </Title>
+            <Text className="text-center text-xl">
+              Tem uma ideia inovadora ou{" "}
+              <Marking isText={true}>quer uma palestra da Investeens</Marking>{" "}
+              na sua escola ou empresa?
+            </Text>
+            <Text className="text-center text-xl">
+              Nos envie uma mensagem e responderemos assim que possível!
+              <Marking isText={true}> inves.teens@outlook.com</Marking>
+            </Text>
+          </div>
+
+          <FormToEmail />
         </Content>
       </Container>
       <Footer />
