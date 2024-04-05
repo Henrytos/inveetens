@@ -1,15 +1,17 @@
 "use server";
 
 import { Resend } from "resend";
+import { Form } from "./form_to_email";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_API_KEY_RESEND);
-const toEmail = process.env.NEXT_PUBLIC_EMAIL_FORM;
-
-export async function formAction(formData: FormData) {
-  const fromEmail = formData.get("email")?.toString();
-  const name = formData.get("nome");
-  const phone = formData.get("telefone");
-  const message = formData.get("mensagem");
+export async function formAction(data: Form) {
+  const resend = new Resend(process.env.NEXT_PUBLIC_API_KEY_RESEND);
+  const toEmail = process.env.NEXT_PUBLIC_EMAIL_FORM;
+  const {
+    nome: name,
+    email: fromEmail,
+    telefone: phone,
+    mensagem: message,
+  } = data;
 
   if (
     fromEmail != null &&
@@ -23,12 +25,12 @@ export async function formAction(formData: FormData) {
       to: [toEmail?.toString() ?? ""],
       bcc: [],
       from: "onboarding@resend.dev",
-      html: `Olá meu nome é ${name} e meu telefone é ${phone} e meu email:  ${fromEmail}.<br><br>${message}`,
+      html: `Olá meu nome é ${name} e meu telefone é ${phone} e meu email:  ${fromEmail}<br><br>${message}`,
       tags: [],
       subject: `Formulário de contato de ${name}`,
     });
-    console.log("Sent email");
+    return { sucess: "Email enviado com sucesso" };
   } else {
-    console.log("Missing data");
+    return { error: "Missing data" };
   }
 }

@@ -17,7 +17,7 @@ const schemaForm = z.object({
   mensagem: z.string().min(10).max(255),
 });
 
-type Form = z.infer<typeof schemaForm>;
+export type Form = z.infer<typeof schemaForm>;
 
 export function FormToEmail() {
   const {
@@ -35,9 +35,23 @@ export function FormToEmail() {
     },
   });
 
+  const handleSubmitForm = (data: Form) => {
+    formAction(data)
+      .then((data) => {
+        console.log(data.sucess);
+      })
+      .catch((data) => {
+        console.log(data.error);
+      });
+    console.log(data);
+  };
+
   return (
     <>
-      <form className="flex flex-col gap-4" action={formAction}>
+      <form
+        className="flex flex-col gap-4"
+        onSubmit={handleSubmit(handleSubmitForm)}
+      >
         <Input {...register("nome")} placeholder="....." required />
         <Input {...register("email")} placeholder=".....@gmail.com" required />
         <Input {...register("telefone")} placeholder="+55....." required />
