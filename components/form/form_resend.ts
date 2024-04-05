@@ -11,7 +11,6 @@ export async function formAction(formData: FormData) {
   const phone = formData.get("telefone");
   const message = formData.get("mensagem");
 
-
   if (
     fromEmail != null &&
     name != null &&
@@ -23,10 +22,10 @@ export async function formAction(formData: FormData) {
       cc: [],
       to: ["franzhenry46@gmail.com"],
       bcc: [],
-      from: fromEmail,
+      from: "onboarding@resend.dev",
       html: `<p>${message}</p>`,
       tags: [],
-      subject: "estou interessado em ser parceiro",
+      subject: `estou interessado em ser parceiro meu \n menssagem:${message} \n nome :${name} \n meu telefone :${phone} \n  email: ${fromEmail}`,
     });
     console.log("Sent email");
   } else {
