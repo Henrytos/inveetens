@@ -11,8 +11,6 @@ export async function formAction(formData: FormData) {
   const phone = formData.get("telefone");
   const message = formData.get("mensagem");
 
-  console.log({ fromEmail });
-  console.log({ fromEmail, name, phone, message, toEmail });
 
   if (
     fromEmail != null &&
