@@ -20,12 +20,12 @@ export async function formAction(formData: FormData) {
   ) {
     const { data, error } = await resend.emails.send({
       cc: [],
-      to: ["franzhenry46@gmail.com"],
+      to: [toEmail?.toString() ?? ""],
       bcc: [],
       from: "onboarding@resend.dev",
-      html: `<p>${message}</p>`,
+      html: `Olá meu nome é ${name} e meu telefone é ${phone} e meu email:  ${fromEmail}.<br><br>${message}`,
       tags: [],
-      subject: `estou interessado em ser parceiro meu \n menssagem:${message} \n nome :${name} \n meu telefone :${phone} \n  email: ${fromEmail}`,
+      subject: `Formulário de contato de ${name}`,
     });
     console.log("Sent email");
   } else {
