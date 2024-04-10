@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Toast,
@@ -7,19 +7,29 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "@/components/ui/toast"
-import { useToast } from "@/components/ui/use-toast"
+} from "@/components/ui/toast";
+import { useToast } from "@/components/ui/use-toast";
+import { Check } from "lucide-react";
 
 export function Toaster() {
-  const { toasts } = useToast()
+  const { toasts } = useToast();
 
   return (
     <ToastProvider>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
-          <Toast key={id} {...props}>
+          <Toast
+            key={id}
+            {...props}
+            className="bg-primary border-0 text-primary-for"
+          >
             <div className="grid gap-1">
-              {title && <ToastTitle>{title}</ToastTitle>}
+              {title && (
+                <ToastTitle>
+                  <Check className="inline mr-4" />
+                  {title}
+                </ToastTitle>
+              )}
               {description && (
                 <ToastDescription>{description}</ToastDescription>
               )}
@@ -27,9 +37,9 @@ export function Toaster() {
             {action}
             <ToastClose />
           </Toast>
-        )
+        );
       })}
       <ToastViewport />
     </ToastProvider>
-  )
+  );
 }

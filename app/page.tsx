@@ -18,8 +18,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Link, X } from "lucide-react";
-import { link } from "fs";
-import { FormToEmail } from "@/components/form/form_to_email";
+import { FormToEmail } from "@/components/form/form-to-email";
+import { Toaster } from "@/components/ui/toaster";
 
 interface Palestra {
   id: number;
@@ -543,6 +543,7 @@ export default function Home() {
 
           <FormToEmail />
         </Content>
+        <Toaster />
       </Container>
       <Footer />
     </>

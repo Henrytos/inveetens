@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/_contexts/theme-provider";
 import { sans } from "@/lib/fonts";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Inveteens",
