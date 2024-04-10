@@ -1,5 +1,5 @@
 import { GraduationCap, Instagram, MicVocal, User } from "lucide-react";
-import { Text } from "./text";
+import { Text } from "../text";
 
 export function Summary() {
   return (

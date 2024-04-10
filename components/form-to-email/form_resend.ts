@@ -1,7 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
-import { Form } from "./form_to_email";
+import { Form } from ".";
 
 export async function formAction(data: Form) {
   const resend = new Resend(process.env.NEXT_PUBLIC_API_KEY_RESEND);
