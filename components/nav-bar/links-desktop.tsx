@@ -30,19 +30,19 @@ export function LinksDesktop() {
       name: "Na midia",
     },
     {
-      id: "3",
-      href: "#oportunidades",
-      name: "Oportunidades",
-    },
-    {
       id: "4",
       href: "#parceiros",
       name: "Parceiros ",
     },
     {
       id: "5",
+      name: "livro",
+      href: "#livro",
+    },
+    {
+      id: "6",
       href: "#contato",
-      name: "Constato",
+      name: "Contato",
     },
   ];
 

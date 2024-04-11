@@ -1,7 +1,3 @@
-import { SubTitle } from "@/components/sub-title";
-import { Text } from "@/components/text";
-import { Button } from "@/components/ui/button";
-import { Link } from "lucide-react";
 import Image from "next/image";
 import { Content } from "../content";
 import { Title } from "../title";
@@ -63,40 +59,26 @@ export function Achievements() {
   ];
 
   return (
-    <Content className="space-y-8">
+    <Content className="space-y-8" id="na-midia">
       <Title>
         Conquistas da <Marking>Investeens</Marking>
       </Title>
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+      <section className="flex flex-wrap">
         {conquistas.map((conquista) => (
-          <div className="group h-72 sm:h-auto  relative" key={conquista.link}>
+          <div
+            className="group h-72 relative flex flex-col gap-2 m-auto"
+            key={conquista.link}
+          >
             <Image
               src={conquista.srcImg}
               alt={`image da ${conquista.title}`}
               width={400}
               height={400}
-              className="object-cover w-full h-full  transition-transform duration-300"
+              className="object-cover h-64 w-64 transition-transform duration-300 rounded-full "
             />
-            <figcaption className="absolute -bottom-6 w-full text-center">
+            <figcaption className="absolute  bottom-0 w-full text-center font-bold bg-primary-foreground/50 text-primary">
               {conquista.title}
             </figcaption>
-            <div className="  flex flex-col justify-center absolute top-0 left-0 w-full h-full bg-transparent  group-hover:bg-black/70 group-hover:text-white transition-all px-5 gap-4">
-              <SubTitle className="text-transparent group-hover:text-white  before:h-0 group-hover:before:h-12  transition-all">
-                {conquista.title}
-              </SubTitle>
-              <Text className="text-transparent group-hover:text-white transition-all ">
-                {conquista.text}
-              </Text>
-              <Button
-                className="invisible group-hover:visible transition-all flex items-center gap-2"
-                asChild
-              >
-                <a href={conquista.link} target="_blank">
-                  <Link />
-                  <span>Ver mais</span>
-                </a>
-              </Button>
-            </div>
           </div>
         ))}
       </section>

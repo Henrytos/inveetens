@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <html lang="pt-BR" suppressHydrationWarning className="scroll-smooth">
+      <html lang="pt-BR" suppressHydrationWarning className="scroll-smooth ">
         <head />
         <body
           className={cn(

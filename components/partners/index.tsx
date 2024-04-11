@@ -31,7 +31,7 @@ export function Partners() {
     },
   ];
   return (
-    <Content className="space-y-8">
+    <Content className="space-y-8" id="parceiros">
       <Title>
         <Marking>PARCEIROS</Marking>
       </Title>

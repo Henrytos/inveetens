@@ -1,14 +1,27 @@
+"use client";
 import Image from "next/image";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../ui/accordion";
-import { X } from "lucide-react";
 import { Content } from "../content";
 import { Title } from "../title";
 import { Marking } from "../marking";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
+
+import Autoplay from "embla-carousel-autoplay";
+import { type CarouselApi } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
 
 interface Palestra {
   id: number;
@@ -118,66 +131,75 @@ export function ListOfLectures() {
       },
     ],
   };
-  const quantity = palestraList[2024].length;
-  const total = quantity + palestraList[2023].length;
-  const size = (quantity / total) * 100;
+
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   return (
     <>
-      <Content>
+      <Content className="space-y-8">
         <Title>
           ONDE JÁ <Marking>PALESTRAMOS</Marking>
         </Title>
 
-        <div className="py-4 space-y-4">
-          <div className="flex justify-center gap-1 items-center">
-            <span className="text-xl font-normal">2024</span>
-            <X className="text-primary" />{" "}
-            <span className="text-xl font-normal">2023</span>
-          </div>
-          <div className="h-2 w-full bg-primary-foreground relative">
-            <span
-              className={`h-2 left-0 top-0 block w-[${size}%] bg-primary z-10`}
-            />
-          </div>
-        </div>
-
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="text-xl">
-              Palestreas de 2024
-            </AccordionTrigger>
-            <AccordionContent className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <section>
+          <Carousel
+            className="w-[90%] m-auto"
+            plugins={[
+              Autoplay({
+                delay: 10000,
+              }),
+            ]}
+            setApi={setApi}
+          >
+            <CarouselContent>
               {palestraList[2024].map((palestra) => (
-                <Image
-                  className="w-full h-80 object-cover"
-                  src={palestra.src}
-                  alt={`imagem de ${palestra.title}`}
-                  width={400}
-                  height={400}
-                  key={palestra.id}
-                />
+                <CarouselItem
+                  className="md:basis-1/2 lg:basis-1/3 "
+                  key={palestra.src}
+                >
+                  <Dialog>
+                    <DialogTrigger>
+                      {" "}
+                      <Image
+                        width={2000}
+                        height={2000}
+                        alt={palestra.title}
+                        src={palestra.src}
+                        className="object-cover w-full h-full"
+                      />
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>{palestra.title}</DialogTitle>
+                        <DialogDescription>{palestra.title}</DialogDescription>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
+                </CarouselItem>
               ))}
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger className="text-xl">
-              Palestreas de 2023
-            </AccordionTrigger>
-            <AccordionContent className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {palestraList[2023].map((palestra) => (
-                <Image
-                  className="w-full h-80 object-cover"
-                  src={palestra.src}
-                  alt={`imagem de ${palestra.title}`}
-                  width={400}
-                  height={400}
-                  key={palestra.id}
-                />
-              ))}
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+          <div className="py-2 text-center text-sm text-muted-foreground">
+            Slide {current} of {count}
+          </div>
+        </section>
       </Content>
     </>
   );
