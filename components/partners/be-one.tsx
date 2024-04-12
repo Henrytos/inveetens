@@ -11,7 +11,7 @@ export function BeOne() {
         className="grid grid-cols-1 sm:grid-cols-2 gap-8 pb-20"
         id="contato"
       >
-        <div className="flex flex-col justify-center  gap-4 h-full relative">
+        <div className="flex flex-col justify-center  gap-4 h-full ">
           <Title className="mb-auto">
             SEJA NOSSO <Marking>PARCEIRO</Marking>
           </Title>
