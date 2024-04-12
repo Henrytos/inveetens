@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { Content } from "../content";
 import { Title } from "../title";
 import { Marking } from "../marking";
+import { AchievementsItem } from "./achievements-item";
 
-interface Conquista {
+export interface Conquista {
   title: string;
   text: string;
   link: string;
@@ -65,21 +65,7 @@ export function Achievements() {
       </Title>
       <section className="flex flex-wrap">
         {conquistas.map((conquista) => (
-          <div
-            className="group h-72 relative flex flex-col gap-2 m-auto"
-            key={conquista.link}
-          >
-            <Image
-              src={conquista.srcImg}
-              alt={`image da ${conquista.title}`}
-              width={400}
-              height={400}
-              className="object-cover h-64 w-64 transition-transform duration-300 rounded-full "
-            />
-            <figcaption className="absolute  bottom-0 w-full text-center font-bold bg-primary-foreground/50 text-primary">
-              {conquista.title}
-            </figcaption>
-          </div>
+          <AchievementsItem conquista={conquista} key={conquista.link} />
         ))}
       </section>
     </Content>

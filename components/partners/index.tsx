@@ -5,6 +5,7 @@ import { Link } from "lucide-react";
 import { Content } from "../content";
 import { Title } from "../title";
 import { Marking } from "../marking";
+import { ButtonLink } from "../btn-link";
 
 interface Parceiro {
   srcImg: string;
@@ -51,12 +52,7 @@ export function Partners() {
               />
               <Text className="text-justify">{parceiro.text}</Text>
             </div>
-            <Button className="  flex items-center gap-2" asChild>
-              <a href={parceiro.link} target="_blank">
-                <Link />
-                <span>Ver mais</span>
-              </a>
-            </Button>
+            <ButtonLink href={parceiro.link}>Ver mais</ButtonLink>
           </div>
         ))}
       </div>
