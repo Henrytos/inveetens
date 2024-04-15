@@ -10,6 +10,7 @@ import { ShowSpeaker } from "@/components/show-speaker";
 import { InvesFuture } from "@/components/lectures/inves-future";
 import { BeOne } from "@/components/partners/be-one";
 import { Start } from "@/components/start";
+import { Book } from "@/components/book"
 export default function Home() {
   return (
     <>
@@ -21,6 +22,7 @@ export default function Home() {
         <ListOfLectures />
         <AboultLectures />
         <Achievements />
+        <Book/>
         <Partners />
         <BeOne />
         <Toaster />
