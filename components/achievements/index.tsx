@@ -2,13 +2,7 @@ import { Content } from "../content";
 import { Title } from "../title";
 import { Marking } from "../marking";
 import { AchievementsItem } from "./achievements-item";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../ui/carousel";
+import { Carousel, CarouselContent } from "../ui/carousel";
 
 export interface Conquista {
   title: string;
@@ -23,7 +17,7 @@ export function Achievements() {
       link: "https://www.prudential.com.br/jovens-visionarios",
       text: "O Prêmio Jovens Visionários Prudential é um programa de reconhecimento internacional que premia jovens por suas soluções inovadoras para desafios financeiros e sociais em suas comunidades.",
       title: "Somos finalistas do Jovens Visionários (Prudential)",
-      srcImg: "/imgs/midia/prudential.webp",
+      srcImg: "/imgs/midia/prudential.jpg",
     },
     {
       link: "https://www.infomoney.com.br/onde-investir/geracao-z-de-zero-risco-jovens-investem-cada-vez-mais-cedo-e-adoram-uma-renda-fixa/",
