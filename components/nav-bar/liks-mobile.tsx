@@ -39,7 +39,7 @@ export function LinksMobile() {
               <a href="#parceiros">Parceiros</a>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <a href="contato">Contato</a>
+              <a href="#contato">Contato</a>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

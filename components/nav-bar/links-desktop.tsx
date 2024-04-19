@@ -22,7 +22,7 @@ export function LinksDesktop() {
     {
       id: "1",
       href: "#palestras",
-      name: "Palestrass",
+      name: "Palestras",
     },
     {
       id: "2",
@@ -33,11 +33,6 @@ export function LinksDesktop() {
       id: "4",
       href: "#parceiros",
       name: "Parceiros ",
-    },
-    {
-      id: "5",
-      name: "livro",
-      href: "#livro",
     },
     {
       id: "6",

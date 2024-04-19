@@ -53,12 +53,12 @@
   background-image: url("/imgs/background-home-senai.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center right;
+  background-position: top right;
 }
 
 #bg-deivid {
   background-image: url("/imgs/foto_deivyd.webp");
-  background-position: center left;
+  background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 2rem 0rem;

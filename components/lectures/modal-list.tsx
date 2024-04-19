@@ -7,6 +7,8 @@ import { SubTitle } from "../sub-title";
 import { CarouselItemLectures } from "./carousel-item-lectures";
 import { palestraList } from "./palestra-list";
 import { CarouselContentLectures } from "./carousel-content-lectures";
+import { Separator } from "../ui/separator";
+import { Text } from "../text";
 
 export interface Palestra {
   id: number;
@@ -23,9 +25,12 @@ export function ListOfLectures() {
   return (
     <>
       <Content className="space-y-8">
-        <Title>
-          ONDE JÁ <Marking>PALESTRAMOS</Marking>
-        </Title>
+        <div className="flex justify-center">
+          <Title className="before:h-0">
+            ONDE JÁ <Marking>PALESTRAMOS</Marking>
+          </Title>
+        </div>
+        <Separator />
 
         <section className="space-y-4">
           <SubTitle>2023</SubTitle>

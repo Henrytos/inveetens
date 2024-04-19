@@ -2,16 +2,20 @@ import { Content } from "../content";
 import { Marking } from "../marking";
 import { Text } from "../text";
 import { Title } from "../title";
+import { Separator } from "../ui/separator";
 
 export function AboultLectures() {
   return (
     <>
       <Content className="space-y-8">
-        <Title>
-          <Marking>O QUE DIZEM</Marking> DA PALESTRA
-        </Title>
-        <section className="space-y-4 max-w-6xl m-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="flex justify-center">
+          <Title className="before:h-0">
+            <Marking>O QUE DIZEM</Marking> DA PALESTRA
+          </Title>
+        </div>
+        <Separator />
+        <section className="grid grid-cols-6 gap-8">
+          <div className="col-span-6 lg:col-span-2  grid grid-cols-3  lg:flex lg:flex-col lg:my-auto  gap-4">
             <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
               <Text>
                 Foi a primeira palestra sobre investimentos que eu vi e me deu
@@ -31,10 +35,25 @@ export function AboultLectures() {
                 de aprender mais sobre investimentos.
               </Text>
             </div>
+
+            <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
+              <Text>
+                90% dos jovens recomendariam para algum amigo ou familiar
+              </Text>
+            </div>
+            <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
+              <Text>96% dos jovens tem interesse em aprender a investir</Text>
+            </div>
+            <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
+              <Text>
+                99% disseram que entenderam mais da metade dos conteúdos
+                abordados
+              </Text>
+            </div>
           </div>
-          <div className="space-y-1">
+          <div className="col-span-6 lg:col-span-4 space-y-1">
             <iframe
-              className="w-full m-auto h-96 sm:h-[600px]"
+              className="w-full m-auto h-96 lg:h-[700px]"
               src="https://www.youtube.com/embed/-bGncYrTb5c?si=9nVmwX3dU1bVqket"
               title="YouTube video player"
               frameBorder={"0"}
@@ -47,27 +66,6 @@ export function AboultLectures() {
             </figcaption>
           </div>
         </section>
-
-        <Content className="grid grid-cols-1 sm:grid-cols-4 gap-2 h-auto pt-0">
-          <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
-            <Text>
-              90% dos jovens recomendariam para algum amigo ou familiar
-            </Text>
-          </div>
-          <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
-            <Text>96% dos jovens tem interesse em aprender a investir</Text>
-          </div>
-          <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
-            <Text>
-              99% disseram que entenderam mais da metade dos conteúdos abordados
-            </Text>
-          </div>
-          <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
-            <Text>
-              82% dos jovens disseram ter adorado a didática das explicações
-            </Text>
-          </div>
-        </Content>
       </Content>
     </>
   );

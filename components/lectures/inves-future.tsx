@@ -18,7 +18,7 @@ export function InvesFuture() {
         <div className="space-y-8">
           <div className="space-y-3">
             <Title>
-              PALESTRA <Marking>INVESTINDO NO FUTURO</Marking>{" "}
+              PALESTRA <Marking>INVESTINDO NO FUTURO!</Marking>{" "}
             </Title>
             <Text className="indent-2">
               O propósito da palestra é{" "}
@@ -36,7 +36,6 @@ export function InvesFuture() {
             <SubTitle>CONTEÚDO DA PALESTRA:</SubTitle>
             <ul className="pl-7 space-y-1 list-disc ">
               <li>Como administrar seu dinheiro</li>
-              <li>Cartão de débito + Cartão de crédito</li>
               <li>Por que devemos investir?</li>
               <li>Juros simples x Juros Compostos</li>
               <li>Mentalidade financeira</li>
@@ -59,7 +58,7 @@ export function InvesFuture() {
                   {" "}
                   <FaWhatsapp size={24} />{" "}
                 </span>
-                <span className="font-bold">Quero uma Plaestra</span>
+                <span className="font-bold">Quero uma palestra</span>
               </a>
             </Button>
           </div>

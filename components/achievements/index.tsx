@@ -2,6 +2,13 @@ import { Content } from "../content";
 import { Title } from "../title";
 import { Marking } from "../marking";
 import { AchievementsItem } from "./achievements-item";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
 
 export interface Conquista {
   title: string;
@@ -17,6 +24,12 @@ export function Achievements() {
       text: "O Prêmio Jovens Visionários Prudential é um programa de reconhecimento internacional que premia jovens por suas soluções inovadoras para desafios financeiros e sociais em suas comunidades.",
       title: "Somos finalistas do Jovens Visionários (Prudential)",
       srcImg: "/imgs/midia/prudential.webp",
+    },
+    {
+      link: "https://www.infomoney.com.br/onde-investir/geracao-z-de-zero-risco-jovens-investem-cada-vez-mais-cedo-e-adoram-uma-renda-fixa/",
+      text: "Deivyd Barros tinha apenas 14 anos quando ouviu falar de ações, bolsa de valores e investimentos pela primeira vez, após seu irmão mais velho comentar sobre formas de ter mais dinheiro. “Fiquei curioso. Comecei a ver vídeos e anotar tudo, de renda fixa a ações. Virei aquele chato que só falava de uma coisa”, conta o jovem, que hoje tem 18 anos e palestra sobre investimentos e educação financeira para alunos do Ensino Médio.",
+      title: "Geração Z de “zero risco”",
+      srcImg: "/imgs/midia/Deivyd.webp",
     },
     {
       title: "Matéria na Seduc",
@@ -44,18 +57,6 @@ export function Achievements() {
       link: "https://grupoifj.com.br/",
       srcImg: "/imgs/midia/conversa-prefeito.webp",
     },
-    {
-      title: "Tino Econômico",
-      text: "Deivyd Barros, o jovem que ensina finanças na internet. Desde os 13 anos leva educação financeira para os seus colegas, professores seguidores.",
-      link: "https://www.tinoeconomico.com.br/deivyd-barros-o-jovem-que-ensina-financas-na-internet/",
-      srcImg: "/imgs/midia/seduc.webp",
-    },
-    {
-      title: "Conversa com o prefeito de Osasco",
-      text: "Nas periferias, jovens visionários vão além das práticas convencionais das salas de aula, explorando novos caminhos através dos estudos sobre finanças e empreendedorismo. Com determinação, esses jovens superam os obstáculos,por meio do conhecimento.",
-      link: "https://jornalaborda.com.br/inspiracao-juvenil-educacao-financeira-em-osasco/",
-      srcImg: "/imgs/midia/jornal-aborda.webp",
-    },
   ];
 
   return (
@@ -63,11 +64,13 @@ export function Achievements() {
       <Title>
         Conquistas da <Marking>Investeens</Marking>
       </Title>
-      <section className="flex flex-wrap">
-        {conquistas.map((conquista) => (
-          <AchievementsItem conquista={conquista} key={conquista.link} />
-        ))}
-      </section>
+      <Carousel>
+        <CarouselContent>
+          {conquistas.map((conquista) => (
+            <AchievementsItem conquista={conquista} key={conquista.link} />
+          ))}
+        </CarouselContent>
+      </Carousel>
     </Content>
   );
 }
