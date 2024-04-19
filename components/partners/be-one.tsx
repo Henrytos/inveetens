@@ -38,13 +38,13 @@ export function BeOne() {
               <Marking isText={true}> inves.teens@outlook.com</Marking>
             </Text>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {social_midia.map((social) => (
               <a
                 key={social.link}
                 href={social.link}
                 target="_blank"
-                className="flex items-center justify-center gap-2 border-2 border-primary bg-primary text-background py-2 px-4 rounded-lg  hover:text-primary hover:bg-background transition-all duration-300 ease-in-out"
+                className="flex items-center justify-center gap-2 border-2 border-primary bg-primary text-background py-2 px-4 rounded-md hover:text-primary hover:bg-background transition-all duration-300 ease-in-out h-10"
               >
                 {findByIcon(social.name.toLowerCase())}
                 <span>{social.name}</span>

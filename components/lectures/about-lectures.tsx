@@ -15,7 +15,7 @@ export function AboultLectures() {
         </div>
         <Separator />
         <section className="grid grid-cols-6 gap-8">
-          <div className="col-span-6 lg:col-span-2  grid grid-cols-3  lg:flex lg:flex-col lg:my-auto  gap-4">
+          <div className="col-span-6 lg:col-span-2 max-[300px]:grid-cols-1 grid grid-cols-2 sm:grid-cols-3  lg:flex lg:flex-col lg:my-auto  gap-4">
             <div className="bg-primary/30  rounded-xl px-3 py-5 pb-4 border-primary-foreground border-2 shadow-xl  flex items-center">
               <Text>
                 Foi a primeira palestra sobre investimentos que eu vi e me deu
